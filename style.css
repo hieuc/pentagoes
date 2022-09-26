@@ -1,0 +1,44 @@
+:root {
+    --turn : black;
+}
+
+circle {
+    stroke: black;
+    stroke-width: 1;
+}
+
+.empty:hover {
+    fill: var(--turn);
+}
+
+.empty {
+    fill: tan;
+}
+
+.black {
+    fill: black;
+}
+
+.white {
+    fill: white;
+}
+
+.quad {
+    fill: tan;
+    width: 200px;
+    height: 200px;
+    stroke-width: 1px;
+    stroke: black;
+    transform-origin: center;
+    transform-box: fill-box;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+}
+
+.arrow:hover {
+    transform: scale(1.01)
+}
+
+

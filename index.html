@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap CSS-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="../../common.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script lang="javascript" type="text/javascript" src="./logic.js"></script>
+    <script lang="javascript" type="text/javascript" src="./board.js"></script>
+    <title>Pentagoes</title>
+
+    <script>
+        $(document).ready(function(){
+            startPage(); 
+            $("#navbar").load("../../nav.html");  
+        });
+      </script>
+    <script lang="javascript" type="text/javascript" src="./main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div id="navbar"></div>
+
+    <center>
+        <svg class="board" width="600" height="550">
+            <g class="rotate-options">
+                <a href="#" onclick="rotateP(5)">
+                    <image class="arrow" xlink:href="./arrows/left-cw.png" width="150" height="50" x=75 y=500></image>
+                </a>
+                <a href="#" onclick="rotateP(2)">
+                    <image class="arrow" xlink:href="./arrows/left-ccw.png" width="150" height="50" x=75 y=50></image>
+                </a>
+                <a href="#" onclick="rotateP(4)">
+                    <image class="arrow" xlink:href="./arrows/up-ccw.png" width="50" height="150" x=500 y=75></image>
+                </a>
+                <a href="#" onclick="rotateP(3)">
+                    <image class="arrow" xlink:href="./arrows/right-cw.png" width="150" height="50" x=380 y=50></image>
+                </a>
+                <a href="#" onclick="rotateP(8)">
+                    <image class="arrow" xlink:href="./arrows/right-ccw.png" width="150" height="50" x=380 y=500></image>
+                </a>
+                <a href="#" onclick="rotateP(1)">
+                    <image class="arrow" xlink:href="./arrows/up-cw.png" width="50" height="150" x=50 y=75></image>
+                </a>
+                <a href="#" onclick="rotateP(7)">
+                    <image class="arrow" xlink:href="./arrows/down-cw.png" width="50" height="150" x=500 y=375></image>
+                </a>
+                <a href="#" onclick="rotateP(6)">
+                    <image class="arrow" xlink:href="./arrows/down-ccw.png" width="50" height="150" x=50 y =375></image>
+                </a>
+            </g>
+        </svg>
+        <div id="status">
+            
+        </div>
+        <div>player controls BLACK, computer controls WHITE</div>
+        <div>
+            <button onclick="reset()">reset</button>
+        </div>
+        <div>
+            <input type="checkbox" id="manual" name="manual" onchange="manual = this.checked">
+            <label for="manual">Manual mode</label>
+        </div>
+        <div>
+            <label for="mode">Mode: </label>
+            <select name="mode" id="mode">
+                <option value="1">Minimax</option>
+                <option value="2" selected>Alpha-beta</option>
+            </select>
+            <button onclick="updateInfo()">Update</button>
+        </div>
+        <div>
+            <label for="depth">Depth: </label>
+            <select name="depth" id="depth">
+                <option value="1">1</option>
+                <option value="2" selected>2</option>
+                <option value="3">3</option>
+            </select>
+            <button onclick="updateInfo()">Update</button>
+        </div>
+        <div>
+            Nodes expanded: <span id="expanded"></span>
+        </div>
+    </center>
+</body>
+</html>
